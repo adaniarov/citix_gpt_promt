@@ -82,7 +82,7 @@ def get_data(input_file, output_file, n_samples=20):
                 prompt_text, prompt_image, house_params = get_prompt(house_params)
                 descpt = get_text_completion(prompt_text)
 
-                time.sleep(70) # есть ограничение на генерацию изображения в минуту
+                time.sleep(70) # rate-generation limit, no more than 1 img
                 url = get_image_completion(prompt_image)
                 path = os.path.join('./img', 'image' + str(i + 1) + '.png')
                 resource = urlopen(url)
